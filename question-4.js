@@ -16,15 +16,27 @@ const alphaTech = [
   
 
 const allEmployees = alphaTech.concat(betaSoft, gammaDev);
+console.log(allEmployees)
 
-const result = allEmployees.filter((employee) => {
-  return employee.department === 'Enginering' && employee.age > 20;
-}).map((employee) => {
+const filtered = allEmployees.filter((employee) => {
+  return employee.department === 'Engineering' && employee.age >= 20;
+})
+
+const result = filtered.map((employee) => {
+  let company = ''
+  if (alphaTech.includes(employee)){
+    company = 'alphaTech'
+  } else if (betaSoft.includes(employee)){
+    company = 'betaSoft'
+  } else if (gammaDev.includes(employee)){
+    company = 'gammaDev'
+  }
   return {
     name: employee.name,
-    company: '' 
+    company: company 
   };
 });
+
 
 console.log(result);
 // [
